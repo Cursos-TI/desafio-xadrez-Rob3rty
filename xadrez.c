@@ -30,5 +30,14 @@ int main() {
         r++;
     } while (r <= 8);
 
+    printf("\nCAVALO:\n");
+    for (int i = 1; i <= 1; i++)
+    {
+        for (int i = 1; i <= 2; i++)
+        {
+            printf("Baixo\n");
+        } 
+        printf("Esquerda\n");
+
     return 0;
 }
