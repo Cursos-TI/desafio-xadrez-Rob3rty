@@ -1,43 +1,55 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
-
-int main() {
-    
-    printf("Jogo de Xadrez: Movimentando as Peças do jogo.\n\n");
-
-    printf("\nTORRE:\n");
-    for (int i = 1; i <= 5; i++)
+void moverTorre(int n){
+    if(n > 0)        
     {
         printf("Direita\n");
+        moverTorre(n -1);
     }
+}
 
-    printf("\nBISPO:\n");
-    int i = 1;
-    while (i <=5)
+void moverBispo(){
+    for (int i = 1; i <= 5; i++)
     {
-        printf("Cima,Direita\n");
-        i++;
+        printf("Cima,");
+        for (int i = 1; i <= 1; i++)
+        {
+            printf("Direita\n");
+        } 
     }
+}
+
+void moverRainha(int n){
+    if (n > 0)
+    {
+        printf("Esquerda\n");
+        moverRainha(n - 1);
+    }
+}
+
+int main()
+{
+    printf("Jogo de Xadrez: Movimentando as Peças do jogo.\n\n");
+
+    printf("TORRE:\n");
+    moverTorre(5);
+    
+    printf("\nBISPO:\n");
+    moverBispo();
 
     printf("\nRAINHA:\n");
-    int r =1;
-    do
-    {
-        printf("Esquerda\n");
-        r++;
-    } while (r <= 8);
-
+    moverRainha(8);
+    
     printf("\nCAVALO:\n");
-    for (int i = 1; i <= 1; i++)
-    {
-        for (int i = 1; i <= 2; i++)
+    for (int i = 1, j = 1; i <= 1; i++)
+    {   
+        if (j == 1)  //verifica se j é igual a 1.
         {
-            printf("Baixo\n");
-        } 
-        printf("Esquerda\n");
-
-    return 0;
+            for (int j = 1; j <=2; j++)  //entrado no loop para mover a peça para cima.
+            {
+                printf("Cima\n");
+            }
+        }
+        printf("Direita");
+    }
 }
